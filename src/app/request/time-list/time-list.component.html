@@ -1,3 +1,14 @@
-<p>
-  time-list works!
-</p>
+<label for="currentTime">Time:</label>
+
+<form [formGroup]="timeForm" (ngSubmit)="onSubmit()">
+    <input type="time" name="currentTime" required formControlName="currentTime">
+    <button type="submit" class="btn btn-primary" [disabled]="!timeForm.valid">Add Time</button>
+</form>
+
+<ul>
+  <li *ngFor="let time of times">
+    <span>{{time}}</span>
+    <button type="button" class="btn btn-dark" (click)="deleteTime(time)">X</button>
+  </li>
+</ul>
+
