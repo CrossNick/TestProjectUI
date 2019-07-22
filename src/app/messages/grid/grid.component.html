@@ -1,3 +1,38 @@
-<p>
-  grid works!
-</p>
+<div class="row">
+  <div class="col-1">
+
+  </div>
+  <div class="col-10">
+      <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Email</th>
+              <th scope="col">Text</th>
+              <th scope="col">Time</th>
+              <th scope="col">RequestId</th>
+              <th scope="col">StatusName</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let message of messages">
+              <th scope="row">{{message.Id}}</th>
+              <td>{{message.Email}}</td>
+              <td>{{message.Text}}</td>
+              <td>{{message.Time}}</td>
+              <td><a routerLink="/request/{{message.RequestId}}">{{message.RequestId}}</a></td>
+              <td>{{message.StatusName}}</td>
+              <td>
+                <button type="button" class="btn btn-danger" *ngIf="message.StatusName=='New'" (click)="onDeleteClick(message.Id)">Delete</button>
+                <button type="button" class="btn btn-warning" *ngIf="message.StatusName=='Error'" (click)="onSendClick(message.Id)">Send</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  
+  </div>
+  <div class="col-1">
+    
+  </div>
+</div>

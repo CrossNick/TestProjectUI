@@ -12,7 +12,8 @@ export class RequestService {
   getRequestUrl: string = 'http://localhost/message-web/api/request/GetRequest';
   saveRequestUrl: string = 'http://localhost/message-web/api/request/SaveRequest';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getRequest (id: number): Observable<Request> {
     const url = `${this.getRequestUrl}?id=${id}`;
