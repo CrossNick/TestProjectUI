@@ -41,12 +41,11 @@ export class GridComponent implements OnInit {
 
   onSendClick(id: number){
     var message = this.messages.find(x=>x.Id==id);
-    this.messagesService.changeStatus(message)
-      .subscribe(()=>{
-        var message = this.messages.find(x=>x.Id==id);
-        message.StatusId = 1;
-        message.StatusName = 'New';
-      });
+    message.StatusId = 1;
+    message.StatusName = 'New';
+    this.messagesService.changeStatus(message).subscribe(()=>{
+      }
+    );
   }
 
 }
